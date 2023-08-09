@@ -13,24 +13,83 @@
 
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
+        <style>
+            section.main {
+            background-color: aliceblue;
+            width: 100%;
+            margin: 0 auto;
+            padding: 0 30px;
+            height: 100vh;
+        }
+
+        .header-area {
+            display: flex;
+        }
+
+        .main-area {
+            display: flex;
+        }
+        .logo {
+        flex-basis: 15%;
+        height: 75px;
+        background: wheat;
+        padding: 25px;
+        }
+
+        .header {
+            flex-basis: 80%;
+            background: bisque;
+            height: 75px;
+            padding: 25px;
+        }
+        .sidebar {
+    flex-basis: 15%;
+    background: aquamarine;
+    height: 100vh;
+}
+
+.nav li {
+    padding: 10px 15px;
+    background: skyblue;
+    border-bottom: 1px solid #999;
+}
+
+.content {
+    flex-basis: 85%;
+    background: darkkhaki;
+}
+
+.user {
+    flex-basis: 5%;
+    height: 75px;
+    background: wheat;
+    padding: 25px;
+}
+        </style>
     </head>
-    <body class="font-sans antialiased">
-        <div class="min-h-screen bg-gray-100">
-            @include('layouts.navigation')
-
-            <!-- Page Heading -->
-            @if (isset($header))
-                <header class="bg-white shadow">
-                    <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                        {{ $header }}
+    <body>
+        <section class="main">
+            <div class="header-area">
+                <div class="logo">logo here</div>
+                <div class="header">Header content here</div>
+                <div class="user">
+                    user img
+                </div>
+            </div>
+            <div class="main-area">
+                <div class="sidebar">
+                    <div class="nav">
+                        <ul>
+                            <li><a href="">Link1</a></li>
+                            <li><a href="">Link2</a></li>
+                            <li><a href="">Link3</a></li>
+                            <li><a href="">Link4</a></li>
+                            <li><a href="">Link5</a></li>
+                        </ul>
                     </div>
-                </header>
-            @endif
-
-            <!-- Page Content -->
-            <main>
-                {{ $slot }}
-            </main>
-        </div>
+                </div>
+                <div class="content">main content area</div>
+            </div>
+        </section>
     </body>
 </html>
